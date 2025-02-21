@@ -1,0 +1,26 @@
+using System;
+using System.Text.RegularExpressions;
+
+class Program
+{
+    static void Main()
+    {
+        // The regular expression for relational operators
+        string pattern = @"\s*(==|!=|>=|<=|>|<)\s*";
+
+        // Test string with relational operators
+        string input = "a == b && c != d || e >= f && g < h";
+
+        // Create a Regex object with the pattern
+        Regex regex = new Regex(pattern);
+
+        // Find all matches
+        MatchCollection matches = regex.Matches(input);
+
+        // Output the matches
+        foreach (Match match in matches)
+        {
+            Console.WriteLine($"Found: {match.Value}");
+        }
+    }
+}
